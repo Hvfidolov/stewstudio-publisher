@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authorisation — Crankcase Files Publisher</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+  <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none">STEW STUDIO</a></div>
+  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</header>
+
+<main class="wrap">
+  <h1 id="title">Authorisation</h1>
+  <p id="lede" class="lede">Reading the response from TikTok…</p>
+
+  <div class="codebox" id="box" hidden>
+    <p style="margin-bottom:10px">
+      Copy this authorisation code and paste it into the publisher tool to finish signing in.
+      It can be used once, and expires after a few minutes.
+    </p>
+    <textarea id="code" readonly spellcheck="false"></textarea>
+    <button id="copy" type="button">Copy code</button>
+    <p class="status" id="status"></p>
+  </div>
+
+  <div id="statebox" hidden>
+    <h2>Verification</h2>
+    <p>
+      The tool printed a one-time check value when it opened this page. Confirm it matches:
+      <br><code id="state"></code>
+    </p>
+    <p style="color:#9aa0a6">
+      If it does not match what the tool printed, close this page and start again without using
+      the code.
+    </p>
+  </div>
+
+  <div id="errbox" hidden>
+    <h2>Authorisation was not completed</h2>
+    <p id="errmsg"></p>
+    <p>Start the sign-in again from the publisher tool.</p>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>Stew Studio · Crankcase Files · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var code = q.get('code');
+  var state = q.get('state');
+  var err = q.get('error');
+  var errDesc = q.get('error_description');
+
+  var title = document.getElementById('title');
+  var lede = document.getElementById('lede');
+
+  if (err) {
+    title.textContent = 'Authorisation failed';
+    lede.hidden = true;
+    document.getElementById('errbox').hidden = false;
+    document.getElementById('errmsg').textContent =
+      (errDesc || err) + ' (' + err + ')';
+    return;
+  }
+
+  if (!code) {
+    title.textContent = 'Nothing to show';
+    lede.textContent =
+      'Open this page from the publisher tool’s sign-in link, not directly.';
+    return;
+  }
+
+  title.textContent = 'Almost done';
+  lede.textContent = 'TikTok approved the request. One step left.';
+  document.getElementById('box').hidden = false;
+
+  var ta = document.getElementById('code');
+  ta.value = code;
+
+  if (state) {
+    document.getElementById('state').textContent = state;
+    document.getElementById('statebox').hidden = false;
+  }
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var s = document.getElementById('status');
+    ta.select();
+    var done = function (ok) {
+      s.textContent = ok ? 'Copied to clipboard.' : 'Could not copy — select the text and copy it manually.';
+      s.className = 'status ' + (ok ? 'ok' : 'err');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function () { done(true); }, function () { done(false); });
+    } else {
+      try { done(document.execCommand('copy')); } catch (e) { done(false); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

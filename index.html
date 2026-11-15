@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crankcase Files Publisher — Stew Studio</title>
+<meta name="description" content="An internal publishing tool used by Stew Studio to upload finished Crankcase Files episodes to TikTok.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+  <div class="brand">STEW STUDIO</div>
+  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</header>
+
+<main class="wrap">
+  <h1>Crankcase&nbsp;Files Publisher</h1>
+  <p class="lede">
+    A small internal tool that uploads finished <strong>Crankcase Files</strong> episodes from the
+    Stew Studio production machine to the studio's own TikTok account.
+  </p>
+
+  <section>
+    <h2>What Crankcase Files is</h2>
+    <p>
+      Crankcase Files is a short-form video series that explains how car and engine systems work —
+      turbochargers, differentials, ABS, CVT transmissions, engine cooling. Each episode is a
+      vertical video built from procedurally generated 3D animation, narrated and rendered in-house.
+    </p>
+  </section>
+
+  <section>
+    <h2>What this tool does</h2>
+    <p>
+      Finished episodes are rendered on a local workstation as MP4 files. Rather than copying each
+      file to a phone by hand, this tool uploads the finished file directly from the workstation to
+      the studio's TikTok account, together with its title and description.
+    </p>
+    <ol class="steps">
+      <li>The studio operator signs in to TikTok and grants the tool access to their own account.</li>
+      <li>The operator selects a finished episode file on the workstation.</li>
+      <li>The tool uploads the video to TikTok and reports the upload status.</li>
+      <li>The operator reviews the post and publishes it.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>How each permission is used</h2>
+    <dl class="scopes">
+      <dt><code>user.info.basic</code></dt>
+      <dd>
+        Reads the open ID and display name of the signed-in account, so the tool can confirm which
+        account an episode is about to be uploaded to before it starts. No profile data is stored
+        beyond the current session.
+      </dd>
+
+      <dt><code>video.upload</code></dt>
+      <dd>
+        Uploads a finished episode to the account holder's TikTok drafts. The operator then opens
+        the draft in the TikTok app, reviews it, and publishes it themselves. Nothing is made public
+        by the tool.
+      </dd>
+
+      <dt><code>video.publish</code></dt>
+      <dd>
+        Posts a finished episode directly to the account holder's own profile, with the title and
+        description entered by the operator on the workstation. Used only for episodes the operator
+        has already reviewed locally, and only on the studio's own account.
+      </dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Who can use it</h2>
+    <p>
+      This is not a public product. It runs on Stew Studio's own machine and is used only by the
+      studio to post its own original videos to its own TikTok account. It is not distributed, has
+      no sign-up, and does not post on behalf of anyone else.
+    </p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Stew Studio · Crankcase Files · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Crankcase Files Publisher</title>
+<meta name="description" content="Privacy policy for the Crankcase Files Publisher, an internal tool used by Stew Studio to upload its own videos to its own TikTok account.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+  <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none">STEW STUDIO</a></div>
+  <nav><a href="index.html">Home</a><a href="terms.html">Terms</a></nav>
+</header>
+
+<main class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 15 November 2026</p>
+
+  <p>
+    This policy covers the <strong>Crankcase Files Publisher</strong> ("the tool"), an internal
+    application used by Stew Studio to upload its own finished videos to its own TikTok account.
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    The tool runs entirely on a single private workstation. It has no server, no database, no
+    user accounts and no analytics. It does not collect data from anyone other than the studio
+    operator who runs it, and it does not transmit data to anyone except TikTok.
+  </p>
+
+  <h2>What the tool stores</h2>
+  <table>
+    <tr><th>Data</th><th>Why</th><th>Where it is kept</th></tr>
+    <tr>
+      <td>TikTok access token and refresh token</td>
+      <td>To stay signed in to the studio's own TikTok account between uploads, so the operator does not re-authorise for every episode.</td>
+      <td>A file in the operator's own Windows user profile, on the local workstation only.</td>
+    </tr>
+    <tr>
+      <td>TikTok open ID and display name</td>
+      <td>To show which account an episode is about to be uploaded to, as a confirmation step before upload.</td>
+      <td>The same local file.</td>
+    </tr>
+    <tr>
+      <td>Upload records (file name, publish ID, status, timestamp)</td>
+      <td>To track whether an upload succeeded and to avoid uploading the same episode twice.</td>
+      <td>A local log file on the workstation.</td>
+    </tr>
+  </table>
+
+  <p>
+    The video files themselves are produced by Stew Studio and already exist on the workstation.
+    They are sent to TikTok when the operator chooses to upload one.
+  </p>
+
+  <h2>What the tool does not do</h2>
+  <ul>
+    <li>It does not collect data from members of the public, viewers, or any TikTok user other than the studio's own account.</li>
+    <li>It does not sell, share, rent or disclose any data to third parties.</li>
+    <li>It does not use advertising networks, trackers, cookies or analytics services.</li>
+    <li>It does not read other people's TikTok content, followers, comments or messages.</li>
+    <li>It does not run in the background or upload anything without the operator starting it.</li>
+  </ul>
+
+  <h2>Information shared with TikTok</h2>
+  <p>
+    When the operator uploads an episode, the video file and its title and description are sent to
+    TikTok through TikTok's official Content Posting API. That transfer is governed by
+    <a href="https://www.tiktok.com/legal/privacy-policy" rel="noopener">TikTok's own Privacy Policy</a>.
+    The tool sends nothing to any other external service.
+  </p>
+
+  <h2>Retention and deletion</h2>
+  <p>
+    Tokens are kept only while the tool is in use. Access can be withdrawn at any time, and doing so
+    immediately stops the tool from being able to access the account:
+  </p>
+  <ol class="steps">
+    <li>In the TikTok app, open <em>Settings and privacy → Security and permissions → Manage app permissions</em> and remove this app.</li>
+    <li>On the workstation, delete the stored token file in the operator's user profile.</li>
+  </ol>
+  <p>
+    Deleting the token file removes every piece of account information the tool holds. There is no
+    copy anywhere else, because there is no server.
+  </p>
+
+  <h2>Security</h2>
+  <p>
+    Tokens are stored in the operator's own Windows user profile, outside the project folder and
+    outside any version control, and are readable only by that Windows user account. The application
+    credentials (client key and client secret) are kept in a local environment file that is likewise
+    excluded from version control. All communication with TikTok uses HTTPS.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    The tool is not directed at children. It is an internal production utility with a single
+    operator and no public sign-up.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    If the tool's behaviour changes, this page is updated and the date at the top changes with it.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy can be sent to
+    <a href="mailto:contactstewstudio@gmail.com">contactstewstudio@gmail.com</a>.
+  </p>
+</main>
+
+<footer class="wrap">
+  <p>Stew Studio · Crankcase Files · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+</footer>
+</body>
+</html>
